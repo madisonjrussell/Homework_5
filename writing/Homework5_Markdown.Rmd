@@ -31,9 +31,7 @@ library(tidyr)
 library(dplyr)
 homicides2 <- unite(homicides, city_name,
 sep = ", ", remove = FALSE, c(city, state))
-co_counties <- counties(state = "CO", cb = TRUE, class = "sf")
-chicago_homicides <- homicides2 %>% 
-  filter(city_name == "Chicago, IL")
+milwaukee_tracts <- tracts("WI", "Milwaukee", cb = TRUE, class = "sf")
 
 ```
 
