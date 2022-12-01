@@ -40,3 +40,8 @@ homicides <- read.csv(url("https://raw.githubusercontent.com/washingtonpost/data
 milwaukee_tracts <- tracts("WI", "Milwaukee", cb = TRUE, class = "sf") %>% st_as_sf(milwaukee_tracts, coords = c("lon", "lat")) %>% 
   st_set_crs(4269) 
 
+class(milwaukee_tracts)
+class(milwaukee_tracts$geometry)
+
+
+```
