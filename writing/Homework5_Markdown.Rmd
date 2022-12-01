@@ -58,7 +58,7 @@ plottybaby2 <- ggplot() +
   geom_point(data = milwaukee_homicides, aes(x = lon, y = lat, col = victim_race), size = .52) + labs(x = "Longitude", y = "Latitude", col = "Victim Race")  +
   theme_void()
 
-
+plottybaby2
 
 
 ```
