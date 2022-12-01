@@ -2,36 +2,41 @@
 title: "Homework5_Markdown"
 author: "Madison Russell"
 date: "2022-11-29"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
 ---
+
+
+Packages needed for this homework assignment: 
 
 ```{r}
 library(readr)
 library(tidyverse)
-homicides <- read.csv(url("https://raw.githubusercontent.com/washingtonpost/data-homicides/master/homicide-data.csv"))
+library(dplyr)
+library(tidyverse)
+library(sf)
+library(tigris)
+library(ggplot2)
+library(purrr)
+library(scales)
+library(ggthemes)
+library(broom)
+library(forcats)
+library(geofacet)
+library(tidyr)
+library(dplyr)
 ```
 
 Choice 1: Pick one city in the data. Create a map showing the locations of the homicides in that city, using the sf framework discussed in class. Use tigris to download boundaries for some sub-city geography (e.g., tracts, block groups, county subdivisions) to show as a layer underneath the points showing homicides. Use different facets for solved versus unsolved homicides and different colors to show the three race groups with the highest number of homicides for that city (you may find the fct_lump function from forcats useful for this).
 
 
-```{r}
-library(dplyr)
-library(tidyverse)
-library(sf)
-library(tigris)
-options(timeout = 1200)
-library(ggplot2)
-
-```
-
-
+Let's read in the original data set, make a Milwaukee "tracts" sf, and filter out the original data set to create a new object called "milwaukee_homicides". 
 
 ```{r}
-library(tidyr)
-library(dplyr)
-homicides2 <- unite(homicides, city_name,
-sep = ", ", remove = FALSE, c(city, state))
-milwaukee_tracts <- tracts("WI", "Milwaukee", cb = TRUE, class = "sf")
+homicides <- read.csv(url("https://raw.githubusercontent.com/washingtonpost/data-homicides/master/homicide-data.csv"))
 
-```
+milwaukee_tracts <- tracts("WI", "Milwaukee", cb = TRUE, class = "sf") %>% st_as_sf(milwaukee_tracts, coords = c("lon", "lat")) %>% 
+  st_set_crs(4269) 
 
