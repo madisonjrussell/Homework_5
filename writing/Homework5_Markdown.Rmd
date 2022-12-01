@@ -43,5 +43,12 @@ milwaukee_tracts <- tracts("WI", "Milwaukee", cb = TRUE, class = "sf") %>% st_as
 class(milwaukee_tracts)
 class(milwaukee_tracts$geometry)
 
+milwaukee_homicides <- homicides %>% 
+  filter(city == "Milwaukee") %>% 
+  select(victim_race, uid, city, disposition, lat, lon) %>% dplyr::mutate(victim_race = forcats::fct_lump(victim_race, n = 3)) %>% 
+mutate(unsolved_homicides = as.numeric(disposition != "Closed by arrest"))
+```
+
+
 
 ```
