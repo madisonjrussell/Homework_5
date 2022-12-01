@@ -60,5 +60,7 @@ plottybaby2 <- ggplot() +
 milwaukee_labels <- as_labeller(c('0' = "Solved",
                                   '1' = "Unsolved"))
 
+final_plotty_baby <- plottybaby2 + facet_wrap(.~unsolved_homicides, ncol = 2, labeller = milwaukee_labels) + ggtitle("Homicides in Milwaukee, WI") + theme(plot.title = element_text(hjust = .5))
+
 
 ```
