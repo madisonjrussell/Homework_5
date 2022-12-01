@@ -49,6 +49,15 @@ milwaukee_homicides <- homicides %>%
 mutate(unsolved_homicides = as.numeric(disposition != "Closed by arrest"))
 ```
 
+Now that we have our two new objects, let's map, facet, and make our final plot :)
+
+```{r fig.height = 10, fig.width=20}
+
+plottybaby2 <- ggplot() + 
+  geom_sf(data = milwaukee_tracts, color = "black") + 
+  geom_point(data = milwaukee_homicides, aes(x = lon, y = lat, col = victim_race), size = .52)  
+
+
 
 
 ```
