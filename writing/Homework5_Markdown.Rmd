@@ -55,7 +55,8 @@ Now that we have our two new objects, let's map, facet, and make our final plot 
 
 plottybaby2 <- ggplot() + 
   geom_sf(data = milwaukee_tracts, color = "black") + 
-  geom_point(data = milwaukee_homicides, aes(x = lon, y = lat, col = victim_race), size = .52)  
+  geom_point(data = milwaukee_homicides, aes(x = lon, y = lat, col = victim_race), size = .52) + labs(x = "Longitude", y = "Latitude", col = "Victim Race")  +
+  theme_void()
 
 
 
