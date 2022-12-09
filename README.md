@@ -1,3 +1,4 @@
+I wasn't really sure what to include here, so I copied my entire homework code. I hope you enjoy this homework assignment if you happen to stumble across this README file. I apologize for always assigning my plot names so frivolously. It's just for fun. I can change them, though...if you need. OK, ENJOY!
 library(readr)
 library(tidyverse)
 library(dplyr)
